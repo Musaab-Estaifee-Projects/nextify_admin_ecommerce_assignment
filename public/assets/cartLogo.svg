@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="ShoppingCart">
+  <defs>
+    <linearGradient id="a" x1=".753" x2="27.753" y1="3.247" y2="30.247" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff6d04" class="stopColorfdc830 svgShape"></stop>
+      <stop offset="1" stop-color="#fd6513" class="stopColorf37335 svgShape"></stop>
+    </linearGradient>
+  </defs>
+  <path fill="url(#a)" d="M26,25.59L24.41,24H21.59L20,25.59V26H8V25.59L6.69,24.27,7.54,23H25.41l1.49-1.49L30.11,8.69,28.41,7H8.78L7.9,3.49,6.41,2H2V4H5.59L6.1,4.51,6.89,7.69,6,8.59V21.7L4.46,24H3.59L2,25.59v2.82L3.59,30H6.41L8,28.41V28H20v0.41L21.59,30h2.82L26,28.41V28h4V26H26V25.59ZM21,11h2v8H21V11Zm-5,0h2v8H16V11Zm-5,0h2v8H11V11ZM6,27.59L5.59,28H4.41L4,27.59V26.41L4.41,26H5.59L6,26.41v1.18Zm18,0L23.59,28H22.41L22,27.59V26.41L22.41,26h1.18L24,26.41v1.18Z"></path>
+</svg>
