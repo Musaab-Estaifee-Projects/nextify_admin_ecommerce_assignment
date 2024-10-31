@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
 import ImageUpload from "../custom/ImageUpload";
 import { useState } from "react";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 // import Delete from "../custom ui/Delete";
 
 const formSchema = z.object({
@@ -28,9 +28,17 @@ const formSchema = z.object({
   image: z.string(),
 });
 
+// interface CollectionType {
+//   _id: string;
+//   title: string;
+//   description: string;
+//   image: string;
+//   userId: string;
+// }
+
 interface CollectionFormProps {
   // CollectionType | null;
-  initialData?: any | null;
+  initialData?: CollectionType | null;
 }
 
 const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
@@ -62,23 +70,26 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
-      const url = initialData
-        ? `/api/collections/${initialData._id}`
-        : "/api/collections";
-      const res = await fetch(url, {
+      // const url = initialData
+      //   ? `/api/collections/${initialData._id}`
+      //   : "/api/collections";
+      const res = await fetch("/api/collections", {
         method: "POST",
         body: JSON.stringify(values),
       });
       if (res.ok) {
         setLoading(false);
-        // toast.success(`Collection ${initialData ? "updated" : "created"}`);
-        window.location.href = "/collections";
+        toast.success(`Collection ${initialData ? "updated" : "created"}`);
+        // // window.location.href = "/collections";
         router.push("/collections");
       }
     } catch (err) {
-      console.log("[collections_POST]", err);
-      // toast.error("Something went wrong! Please try again.");
+      console.log("[Collections_POST]", err);
+      toast.error("Something went wrong! Please try again.");
+    } finally {
+      setLoading(false);
     }
+    // console.log(values);
   };
 
   return (
@@ -148,9 +159,16 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
             )}
           />
           <div className="flex gap-10">
-            <Button type="submit" className="bg-orange-600">
-              Submit
-            </Button>
+            {loading ? (
+              <Button disabled type="submit" className="bg-orange-600">
+                Submitting
+              </Button>
+            ) : (
+              <Button type="submit" className="bg-orange-600">
+                Submit
+              </Button>
+            )}
+
             <Button
               type="button"
               onClick={() => router.push("/collections")}

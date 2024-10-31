@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import LeftSidebar from "@/components/layout/LeftSidebar";
 import Navbar from "@/components/layout/Navbar";
-
+import { ToasterProvider } from "@/lib/ToasterProvider";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -32,6 +32,7 @@ export default function RootLayout({
         <body
           className={`${spaceGrotesk.variable} ${inter.className} antialiased bg-black text-gray-300 font-spaceGrotesk`}
         >
+          <ToasterProvider />
           <div className="flex max-lg:flex-col">
             <LeftSidebar />
             <Navbar />
