@@ -13,7 +13,7 @@ const TopBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="sticky top-0 z-20 w-full flex justify-between items-center px-6 py-4 shadow-xl lg:hidden">
+    <div className="top-0 z-20 w-full flex justify-between items-center px-6 py-4 shadow-xl lg:hidden">
       <Image src="/assets/cartLogo.svg" alt="logo" width={40} height={40} />
 
       <div className="flex gap-8 max-md:hidden">
