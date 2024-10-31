@@ -116,6 +116,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
                     placeholder="Title"
                     {...field}
                     onKeyDown={handleKeyPress}
+                    className="text-gray-500"
                   />
                 </FormControl>
                 <FormMessage />
@@ -134,6 +135,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
                     {...field}
                     rows={5}
                     onKeyDown={handleKeyPress}
+                    className="text-gray-500"
                   />
                 </FormControl>
                 <FormMessage />

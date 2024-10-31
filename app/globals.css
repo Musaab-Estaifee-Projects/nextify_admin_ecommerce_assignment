@@ -8,6 +8,10 @@ body,
   height: 100%;
 }
 
+body {
+  font-family: "Space_Grotesk", sans-serif;
+}
+
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities;
