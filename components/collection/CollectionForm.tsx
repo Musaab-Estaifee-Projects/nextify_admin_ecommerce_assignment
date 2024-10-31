@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 import { Separator } from "../ui/separator";
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,7 @@ import { Textarea } from "../ui/textarea";
 import ImageUpload from "../custom/ImageUpload";
 import { useState } from "react";
 import toast from "react-hot-toast";
-// import Delete from "../custom ui/Delete";
+import Delete from "../custom/Delete";
 
 const formSchema = z.object({
   title: z.string().min(2).max(20),
@@ -37,7 +37,6 @@ const formSchema = z.object({
 // }
 
 interface CollectionFormProps {
-  // CollectionType | null;
   initialData?: CollectionType | null;
 }
 
@@ -57,6 +56,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
         },
   });
 
+  // Prevent Submitting the form by pressing Enter
   const handleKeyPress = (
     e:
       | React.KeyboardEvent<HTMLInputElement>
@@ -70,17 +70,17 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
-      // const url = initialData
-      //   ? `/api/collections/${initialData._id}`
-      //   : "/api/collections";
-      const res = await fetch("/api/collections", {
+      const url = initialData
+        ? `/api/collections/${initialData._id}`
+        : "/api/collections";
+      const res = await fetch(url, {
         method: "POST",
         body: JSON.stringify(values),
       });
       if (res.ok) {
         setLoading(false);
-        toast.success(`Collection ${initialData ? "updated" : "created"}`);
-        // // window.location.href = "/collections";
+        toast.success(`Collection ${initialData ? "Updated" : "Created"}`);
+        window.location.href = "/collections";
         router.push("/collections");
       }
     } catch (err) {
@@ -98,6 +98,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
         <div className="flex items-center justify-between">
           <p className="text-heading2-bold">Edit Collection</p>
           {/* <Delete id={initialData._id} item="collection" /> */}
+          <Delete id={initialData._id} />
         </div>
       ) : (
         <p className="text-heading2-bold">Create Collection</p>
