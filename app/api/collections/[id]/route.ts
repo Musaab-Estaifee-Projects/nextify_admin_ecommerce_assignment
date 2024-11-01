@@ -12,7 +12,10 @@ export const GET = async (
   try {
     await connectToDatabase();
 
-    const collection = await Collection.findById(params.id);
+    const collection = await Collection.findById(params.id).populate({
+      path: "products",
+      model: Product,
+    });
 
     if (!collection) {
       return new NextResponse(
@@ -95,3 +98,5 @@ export const DELETE = async (
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 };
+
+export const dynamic = "force-dynamic";
