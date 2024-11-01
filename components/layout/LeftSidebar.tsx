@@ -9,7 +9,13 @@ const LeftSidebar = () => {
   const pathname = usePathname();
   return (
     <div className="h-screen left-0 top-0 sticky p-8 flex flex-col gap-16 shadow-sm shadow-slate-600 max-lg:hidden">
-      <Image src="/assets/cartLogo.svg" alt="logo" width={50} height={50} />
+      <div className="flex gap-2">
+        <Image src="/assets/cartLogo.svg" alt="logo" width={40} height={40} />
+        <h1 className="text-[20px] font-bold flex items-center justify-center tracking-wide">
+          <p className="text-orange-500">Next</p>ify Admin
+        </h1>
+      </div>
+
       <div className="flex flex-col gap-12">
         {navLinks.map((link) => (
           <Link

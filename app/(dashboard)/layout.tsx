@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Inter } from "next/font/google";
 import "../globals.css";
 import LeftSidebar from "@/components/layout/LeftSidebar";
 import Navbar from "@/components/layout/Navbar";
