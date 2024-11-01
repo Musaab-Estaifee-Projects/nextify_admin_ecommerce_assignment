@@ -8,8 +8,17 @@ body,
   height: 100%;
 }
 
+:root {
+  --font-spaceGrotesk: 'Space Grotesk', sans-serif;
+}
+
 body {
   font-family: "Space_Grotesk", sans-serif;
+  --font-spaceGrotesk: 'Space Grotesk', sans-serif;
+}
+
+.font-spaceGrotesk {
+  font-family: var(--font-spaceGrotesk);
 }
 
 /* @tailwind base;

@@ -29,7 +29,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${spaceGrotesk.variable} ${inter.className} antialiased bg-[#09090B] text-gray-300 font-spaceGrotesk`}
+          className={`${spaceGrotesk.variable} antialiased bg-[#09090B] text-gray-300 font-spaceGrotesk`}
         >
           <ToasterProvider />
           <div className="flex max-lg:flex-col">
