@@ -2,6 +2,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import Delete from "../custom/Delete";
 import Link from "next/link";
+import Edit from "../custom/Edit";
 
 export const columns: ColumnDef<CollectionType>[] = [
   {
@@ -24,7 +25,12 @@ export const columns: ColumnDef<CollectionType>[] = [
   {
     id: "actions",
     header: "Actions",
-    cell: ({ row }) => <Delete id={row.original._id} />,
+    cell: ({ row }) => (
+      <div className="flex gap-2">
+        <Delete item="collection" id={row.original._id} />
+        <Edit item="collections" id={row.original._id} />
+      </div>
+    ),
   },
 ];
 

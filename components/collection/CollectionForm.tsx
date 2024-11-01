@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { Separator } from "../ui/separator";
 import { Button } from "@/components/ui/button";
@@ -98,7 +98,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
         <div className="flex items-center justify-between">
           <p className="text-heading2-bold">Edit Collection</p>
           {/* <Delete id={initialData._id} item="collection" /> */}
-          <Delete id={initialData._id} />
+          <Delete item="collection" id={initialData._id} />
         </div>
       ) : (
         <p className="text-heading2-bold">Create Collection</p>
@@ -120,7 +120,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
                     className="text-gray-500"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-red-1" />
               </FormItem>
             )}
           />
@@ -139,7 +139,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
                     className="text-gray-500"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-red-1" />
               </FormItem>
             )}
           />

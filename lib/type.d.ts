@@ -17,24 +17,9 @@ type ProductType = {
   sizes: [string];
   colors: [string];
   price: number;
-  expense: number;
+  cost: number;
   createdAt: Date;
   updatedAt: Date;
-};
-
-type OrderColumnType = {
-  _id: string;
-  customer: string;
-  products: number;
-  totalAmount: number;
-  createdAt: string;
-};
-
-type OrderItemType = {
-  product: ProductType;
-  color: string;
-  size: string;
-  quantity: number;
 };
 
 type CustomerType = {
