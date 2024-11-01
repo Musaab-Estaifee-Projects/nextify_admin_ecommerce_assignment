@@ -59,7 +59,7 @@ const Navbar = () => {
         {dropdownMenu && (
           <div
             ref={menuRef}
-            className={`absolute top-10 right-6 flex flex-col gap-8 p-5 border rounded-lg bg-[#09090B]`}
+            className={`absolute top-10 right-6 flex flex-col gap-8 p-5 border rounded-lg bg-[#1a1a1e]`}
           >
             {navLinks.map((link) => (
               <Link

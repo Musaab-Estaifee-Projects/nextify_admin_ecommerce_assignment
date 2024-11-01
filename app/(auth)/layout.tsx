@@ -27,7 +27,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${spaceGrotesk.variable} ${inter.className} antialiased bg-[#09090B] text-gray-300 font-spaceGrotesk`}
+          className={`${spaceGrotesk.variable} ${inter.className} antialiased bg-[#1a1a1e] text-gray-300 font-spaceGrotesk`}
         >
           {children}
         </body>
